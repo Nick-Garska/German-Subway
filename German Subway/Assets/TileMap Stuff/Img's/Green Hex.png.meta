@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: accd316a7c385594b920d7944e519f3e
+guid: cd313be88d8d22b4b866f3aba13eeaeb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2135585597343286014
-    second: Hexagon Pointed-Top
+      213: 2747690628134850419
+    second: Hexagon Flat-Top
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -36,8 +36,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: 1
-    mipBias: 0
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -68,7 +68,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -80,7 +80,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -114,71 +114,59 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 128
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hexagon Pointed-Top
+      name: Hexagon Flat-Top
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 226
-        height: 256
+        x: 0
+        y: 15
+        width: 256
+        height: 226
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -6, y: 128}
-        - {x: -114, y: 66}
-        - {x: -114, y: -66}
-        - {x: -6, y: -128}
-        - {x: 6, y: -128}
-        - {x: 114, y: -66}
-        - {x: 114, y: 66}
-        - {x: 6, y: 128}
+      - - {x: -66, y: 114}
+        - {x: -128, y: 6}
+        - {x: -128, y: -6}
+        - {x: -66, y: -114}
+        - {x: 66, y: -114}
+        - {x: 128, y: -6}
+        - {x: 128, y: 6}
+        - {x: 66, y: 114}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20db9eac630ec52e0800000000000000
-      internalID: -2135585597343286014
+      spriteID: 37fc5a28112c12620800000000000000
+      internalID: 2747690628134850419
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     outline:
-    - - {x: -6, y: 128}
-      - {x: -114, y: 66}
-      - {x: -114, y: -66}
-      - {x: -6, y: -128}
-      - {x: 6, y: -128}
-      - {x: 114, y: -66}
-      - {x: 114, y: 66}
-      - {x: 6, y: 128}
+    - - {x: -66, y: 114}
+      - {x: -128, y: 6}
+      - {x: -128, y: -6}
+      - {x: -66, y: -114}
+      - {x: 66, y: -114}
+      - {x: 128, y: -6}
+      - {x: 128, y: 6}
+      - {x: 66, y: 114}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+  spritePackingTag:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
