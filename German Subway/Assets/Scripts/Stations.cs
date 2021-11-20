@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class Stations : MonoBehaviour
 {
-	//public Button stationClicked;
+	public GameObject station1;
+	public GameObject station2;
 
 	void Start()
 	{
-		//Button btn = stationClicked.GetComponent<Button>();
-		//btn.onClick.AddListener(TaskOnClick);
+		Instantiate(station1, new Vector3(-0.7f, -3.5f, 1f), Quaternion.identity);
+		Instantiate(station2, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
 	}
 
 	void TaskOnClick()
