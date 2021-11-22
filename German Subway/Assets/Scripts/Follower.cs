@@ -7,6 +7,8 @@ using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+/// delete this line: just used to commit after deleting some unneeded folders
+
 public class Follower : MonoBehaviour
 {
     public PathCreator pathCreator;
