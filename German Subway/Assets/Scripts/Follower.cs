@@ -26,14 +26,14 @@ public class Follower : MonoBehaviour
     //GameObject anyObjectWhichShouldBeTheParentOfThisOne = GameObject.Find("NameOfTheObjectWhichIsGoingToBeTheParent");
 
     float t = 0;
-    bool pause = false;
+    //bool pause = false;
 
     // Start is called before the first frame update
     void Start()
     {
         train = GameObject.Find("PassengerTrain");
         passenger = GameObject.Find("player");
-        Instantiate(passenger, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
+        //Instantiate(passenger, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
 
         //trainWpassenger.GetComponent<Renderer>().enabled = false;
         t = timer;
@@ -67,7 +67,6 @@ public class Follower : MonoBehaviour
                 }
                 System.Threading.Thread.Sleep(1); //so processor can rest for a while
             }
-
             if (num % 2 == 1)
             {
                 //GameObject go;
@@ -76,7 +75,7 @@ public class Follower : MonoBehaviour
                 // passenger = Instantiate(player, spawnpos, Quaternion.identity) as GameObject;
                 //passenger.transform.parent = transform;
                 //Instantiate(m_Prefab, (0, 0, 0), (0, 0, 0) as GameObject).transform.parent = parentGameObject.transform;
-                if (passenger != null) { passenger.transform.parent = train.transform; }
+            //1   if (passenger != null) { passenger.transform.parent = train.transform; }
                 //passenger.transform.Translate(0, 0, 0);
             }
             else
@@ -84,7 +83,7 @@ public class Follower : MonoBehaviour
                 //passenger.transform.parent = null;
                 //Destroy(passenger);
 
-                Instantiate(passenger, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
+             //2  Instantiate(passenger, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
             }
             num++;
 

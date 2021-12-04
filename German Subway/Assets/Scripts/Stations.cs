@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static LeverDoor;
 
 
 public class Stations : MonoBehaviour
 {
     public GameObject station1;
     public GameObject station2;
-    public GameObject passenger;
+    public GameObject lever1;
 
 
     void Start()
@@ -16,6 +17,7 @@ public class Stations : MonoBehaviour
         Instantiate(station1, new Vector3(-0.7f, -3.5f, 1f), Quaternion.identity);
         Instantiate(station2, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
         //Instantiate(passenger, new Vector3(6.89f, -0.9f, 1f), Quaternion.identity);
+        //lever1 = GameObject.Find("Lever");
     }
 
     void TaskOnClick()
@@ -49,5 +51,6 @@ public class Stations : MonoBehaviour
     {
         //Code to control train direction
         print("platform clicked");
+        //lever1.Toggle();
     }
 }

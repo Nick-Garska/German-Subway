@@ -7,7 +7,7 @@ public class TrainStateM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       InvokeRepeating(trainStateMatchine, 0, 1.0);
+       //InvokeRepeating(trainStateMatchine, 0, 1.0);
 		
     }
 
@@ -16,7 +16,6 @@ public class TrainStateM : MonoBehaviour
     {
         
     }
-	
 	public void trainStateMatchine(){
 		//this repusents the trains orientation eatch value is how the train is faceing
 		enum Orientation { North = 1, NorthEast = 2, SouthEast = 3, South = 4, SouthWest=5, NorthWest=6   };
@@ -75,7 +74,6 @@ public class TrainStateM : MonoBehaviour
 	
 	
 	
-
 
 
 }
