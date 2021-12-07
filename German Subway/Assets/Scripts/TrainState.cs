@@ -9,23 +9,38 @@ public class TrainStateM : MonoBehaviour
 {
     public object PassengerTrain { get; private set; }
 
+    Orientation trainOrientation;
+
     //this represents the trains orientation each value is how the train is faceing
-    enum Orientation { North = 1, NorthEast = 2, SouthEast = 3, South = 4, SouthWest = 5, NorthWest = 6, East = 7, West = 8 };
+   public enum Orientation { North = 0, NorthEast = 1, SouthEast = 2, South = 3, SouthWest = 4, NorthWest = 5 };
 
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating(trainStateMatchine, 0, 1.0);
+        trainOrientation = 0; // at the moment the trian defaults  to faceing north theres a way called serializable to make the unity edditor be abble to set this value but for now this works
 
+        
+        //this should hopefuly invoke this methods every 5 seconds after a 1 second delay
+        InvokeRepeating("TrainStateMachine(trainOrientation)", 1.0f, 5.0f);
+
+
+
+
+       
+
+        //I have no idea what this is- Nick
         // Direction Variable
-      //  Orientation myOrientation;
-      //  myOrientation = Orientation.South;
+        //  Orientation myOrientation;
+        //  myOrientation = Orientation.South;
 
     }
-   
+    //I have no idea what this is trying to do like obvously its changeing orientation but thats hanndled by the TrainStateMatchine() so I dont know what this is trying to do.-Nick
+   /*
        Orientation ChangeOrientation(Orientation dir)
        {
         // Get position of train
+
+        
         PassengerTrain.GetType();
            if (dir == Orientation.North)
                dir = Orientation.South;
@@ -37,7 +52,9 @@ public class TrainStateM : MonoBehaviour
                dir = Orientation.East;
 
            return dir;
-       }     
+       }
+    */
+
     // Update is called once per frame
  
     void Update()
@@ -46,14 +63,23 @@ public class TrainStateM : MonoBehaviour
     }
 
  
-       public void TrainStateMachine()
-       {  
-           //gets the train position on the XYZ
-           Vector2 trainPos = transform.position;
+       public void TrainStateMachine(Orientation trainOrientation)
+       {
+
+        Tilemap rails= this.FindGameObjectsWithTag("HexMap");
+
+        //gets the train position on the XYZ
+        Vector2 trainPos = transform.position;
            
+
+
+        //this stuff down here has the red underline because it needsa refrence to the tilemap which im trying to get above by giveing it a tag and then useing the get taged object method
+        // which is a funtion of gameobject which should be this but its not and I dont know why I pass the torch to someone else now.
+
+
            //will find the currentHex the train is on
            Tile currentHex = Tilemap.getTile(trainPos);
-        /**
+        
             //will change train Orientation based on the hex the train is on
             if (currentHex.ToString == "Green Hex")
             {
@@ -61,37 +87,37 @@ public class TrainStateM : MonoBehaviour
             }
             else if (currentHex.ToString == "RedHex")
             {
-                Orientation = Orientation + 1;
+            trainOrientation = (trainOrientation + 1)%6;
             }
             else if (currentHex.ToString == "Yellow Hex")
             {
-                Orientation = Orientation - 1;
+            trainOrientation = (trainOrientation - 1)%6;
             }
-     **/
-        switch (Orientation)
+     
+        switch (trainOrientation)
         {
 
-            case North:
+            case Orientation.North:
                 moveNorth();
                 break;
 
-            case NorthEast:
+            case Orientation.NorthEast:
                 moveNorthEast();
                 break;
 
-            case SouthEast:
+            case Orientation.SouthEast:
                 moveSouthEast();
                 break;
 
-            case South:
+            case Orientation.South:
                 moveSouth();
                 break;
 
-            case SouthWest:
+            case Orientation.SouthWest:
                 moveSouthWest();
                 break;
 
-            case SouthEast:
+            case Orientation.NorthWest:
                 moveSouthEast();
                 break;
             default:
