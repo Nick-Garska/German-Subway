@@ -11,8 +11,10 @@ public class TrainStateM : MonoBehaviour
 
     Orientation trainOrientation;
 
+    
+
     //this represents the trains orientation each value is how the train is faceing
-   public enum Orientation { North = 0, NorthEast = 1, SouthEast = 2, South = 3, SouthWest = 4, NorthWest = 5 };
+    public enum Orientation { North = 0, NorthEast = 1, SouthEast = 2, South = 3, SouthWest = 4, NorthWest = 5 };
 
     // Start is called before the first frame update
     void Start()
@@ -66,34 +68,54 @@ public class TrainStateM : MonoBehaviour
        public void TrainStateMachine(Orientation trainOrientation)
        {
 
-        Tilemap rails= this.FindGameObjectsWithTag("HexMap");
+
+        //ok this is an array of all things taged with the HexMap tag witch is just our one tilemap so tempholder[0] will return a refrence to our tilrmap
+        GameObject[] tempholder= GameObject.FindGameObjectsWithTag("HexMap");
+
+        //turns the Gameo
+        TileMap rails=tempholder[0].GetComponent<TileMap>();
+       
 
         //gets the train position on the XYZ
-        Vector2 trainPos = transform.position;
+        Vector3 trainPos = transform.position;
            
 
 
-        //this stuff down here has the red underline because it needsa refrence to the tilemap which im trying to get above by giveing it a tag and then useing the get taged object method
-        // which is a funtion of gameobject which should be this but its not and I dont know why I pass the torch to someone else now.
+      
 
 
            //will find the currentHex the train is on
-           Tile currentHex = Tilemap.getTile(trainPos);
-        
-            //will change train Orientation based on the hex the train is on
-            if (currentHex.ToString == "Green Hex")
-            {
+           Tile currentHex = rails.getTile(trainPos);
+
+
+        //will change train Orientation based on the hex the train is on
+        if (currentHex.ToString().Equals("Green Hex")) 
+        {
                 //do nothing
-            }
-            else if (currentHex.ToString == "RedHex")
+        }
+            else if (currentHex.ToString().Equals("RedHex"))
             {
-            trainOrientation = (trainOrientation + 1)%6;
+            trainOrientation = (trainOrientation + 1);
             }
-            else if (currentHex.ToString == "Yellow Hex")
+            else if (currentHex.ToString().Equals("Yellow Hex"))
             {
-            trainOrientation = (trainOrientation - 1)%6;
+            trainOrientation = (trainOrientation - 1);
             }
-     
+
+       
+        //solves the underflow problem of the Enum- cant use mod for unkown reason
+        if (trainOrientation == (Orientation)(-1))
+        {
+            trainOrientation = (Orientation)(5);
+        }
+        //solves the overflow problem of the Enum
+        else if (trainOrientation == (Orientation)(6))
+        {
+            trainOrientation = (Orientation)(0);
+        }
+
+
+
         switch (trainOrientation)
         {
 
@@ -126,6 +148,7 @@ public class TrainStateM : MonoBehaviour
 
 
     }
+
 
     private void moveSouthWest()
     {
