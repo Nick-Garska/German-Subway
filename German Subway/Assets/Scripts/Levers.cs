@@ -34,6 +34,11 @@ internal class TileMap
     {
         throw new NotImplementedException();
     }
+
+    internal Tile GetTile(Vector3 trainPos)
+    {
+        throw new NotImplementedException();
+    }
 }
 // declare levers
 // based on position, alter currentHex
