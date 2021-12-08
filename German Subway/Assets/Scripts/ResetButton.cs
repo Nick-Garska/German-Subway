@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class resetLevel : MonoBehaviour
+public class ResetButton : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -16,8 +16,10 @@ public class resetLevel : MonoBehaviour
     {
         
     }
-    public void resetScence()
+
+    public void ResetScence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 }
