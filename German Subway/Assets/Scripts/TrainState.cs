@@ -121,27 +121,27 @@ public class TrainState : MonoBehaviour
         {
 
             case Orientation.North:
-                moveNorth();
+                trainPos= moveNorth(Vector3Int.RoundToInt(trainPos));
                 break;
 
             case Orientation.NorthEast:
-                moveNorthEast();
+                trainPos=moveNorthEast(Vector3Int.RoundToInt(trainPos));
                 break;
 
             case Orientation.SouthEast:
-                moveSouthEast();
+                trainPos=moveSouthEast(Vector3Int.RoundToInt(trainPos));
                 break;
 
             case Orientation.South:
-                moveSouth();
+                trainPos=moveSouth(Vector3Int.RoundToInt(trainPos));
                 break;
 
             case Orientation.SouthWest:
-                moveSouthWest();
+                trainPos=moveSouthWest(Vector3Int.RoundToInt(trainPos));
                 break;
 
             case Orientation.NorthWest:
-                moveSouthEast();
+                trainPos=moveNorthWest(Vector3Int.RoundToInt(trainPos));
                 break;
             default:
                 break;
@@ -150,33 +150,100 @@ public class TrainState : MonoBehaviour
 
     }
 
+    private Vector3 moveNorthWest(Vector3 trainPosT)
+    {
+        //move half up 1 left
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        x = x - 1;
+        y = y + 0.5f;
+
+        trainPosT.Set(x, y, z);
+
+        return trainPosT;
+    }
+
     private static Tile GetCurrentHex(TileMap rails, Vector3 trainPos)
     {
         return rails.GetTile(trainPos);
     }
 
-    private void moveSouthWest()
+    private Vector3 moveSouthWest(Vector3 trainPosT)
     {
-        throw new NotImplementedException();
+        //move half down 1 left
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        x = x - 1;
+        y = y - 0.5f;
+
+        trainPosT.Set(x,y,z);
+
+        return trainPosT;
+
+
     }
 
-    private void moveSouth()
+    private Vector3 moveSouth(Vector3 trainPosT)
     {
-        throw new NotImplementedException();
+        //move down 1
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        
+        y = y - 1f;
+
+        trainPosT.Set(x, y, z);
+
+        return trainPosT;
     }
 
-    private void moveSouthEast()
+    private Vector3 moveSouthEast(Vector3 trainPosT)
     {
-        throw new NotImplementedException();
+        //move half down 1 right
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        x = x + 1;
+        y = y - 0.5f;
+
+        trainPosT.Set(x, y, z);
+
+        return trainPosT;
     }
 
-    private void moveNorthEast()
+    private Vector3 moveNorthEast(Vector3 trainPosT)
     {
-        throw new NotImplementedException();
+        //move half up 1 right
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        x = x + 1;
+        y = y + 0.5f;
+
+        trainPosT.Set(x, y, z);
+
+        return trainPosT;
     }
 
-    private void moveNorth()
+    private Vector3 moveNorth(Vector3 trainPosT)
     {
-        throw new NotImplementedException();
+        //move up 1
+        float x = trainPosT.x;
+        float y = trainPosT.y;
+        float z = trainPosT.z;
+
+        
+        y = y + 1f;
+
+        trainPosT.Set(x, y, z);
+
+        return trainPosT;
     }
 }
