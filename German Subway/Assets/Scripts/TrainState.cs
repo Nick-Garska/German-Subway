@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.Sprites;
 using System;
 
-public class TrainStateM : MonoBehaviour
+public class TrainState : MonoBehaviour
 {
     public object PassengerTrain { get; private set; }
 
@@ -23,7 +23,7 @@ public class TrainStateM : MonoBehaviour
 
 
         //this should hopefuly invoke this methods every 5 seconds after a 1 second delay
-        InvokeRepeating("TrainStateMachine(trainOrientation)", 1.0f, 5.0f);
+        InvokeRepeating("TrainStateMachine", 1.0f, 5.0f);
 
         //I have no idea what this is- Nick
         // Direction Variable
@@ -58,11 +58,13 @@ public class TrainStateM : MonoBehaviour
     {
 
     }
-
-
-    public void TrainStateMachine(Orientation trainOrientation)
+    public Orientation GetOrientation()
     {
-
+        return trainOrientation;
+    }
+    public void TrainStateMachine()
+    {
+        Orientation trainOrientation = GetOrientation();
 
         //ok this is an array of all things taged with the HexMap tag witch is just our one tilemap so tempholder[0] will return a refrence to our tilrmap
         GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
