@@ -18,8 +18,8 @@ public class Levers : MonoBehaviour
     void Update()
     {
         Vector3 trainPos = transform.position;
-        Tile currentHex = TileMap.getTile(trainPos);
-        print("pos" + currentHex);
+        //Tile currentHex = TileMap.getTile(trainPos);
+       // print("pos" + currentHex);
         if (lever1Open)
         {
            // SetTile(Vector3Int position, Tilemaps.TileBase tile);
