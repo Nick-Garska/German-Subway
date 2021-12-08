@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,19 @@ public class Levers : MonoBehaviour
         {
            // SetTile(Vector3Int position, Tilemaps.TileBase tile);
         }
+    }
+}
+
+internal class TileMap
+{
+    internal static Tile getTile(Vector3 trainPos)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal Tile GetTile(Vector3 trainPos)
+    {
+        throw new NotImplementedException();
     }
 }
 // declare levers
