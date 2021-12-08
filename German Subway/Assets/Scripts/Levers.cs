@@ -80,8 +80,8 @@ public class Levers : MonoBehaviour
         }
            
         currentHex = rails.GetTile(Vector3Int.RoundToInt(trainPos));
-        
 
+        print(rails.GetTile(Vector3Int.RoundToInt(trainPos)));
 
         //print(currentHex.ToString() + " " + trainPos);
 
