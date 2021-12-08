@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class TrainState : MonoBehaviour
 {
+    [SerializeField]
+    private Tilemap rails;
+
     public object PassengerTrain { get; private set; }
 
     Orientation trainOrientation;
@@ -67,19 +70,23 @@ public class TrainState : MonoBehaviour
     {
         Orientation trainOrientation = GetOrientation();
 
+        Vector3 trainPos = transform.position;
+        TileBase currentHex;
+
         //ok this is an array of all things taged with the HexMap tag witch is just our one tilemap so tempholder[0] will return a refrence to our tilrmap
-        GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
+        //GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
 
         //turns the Gameo
-        TileMap rails = tempholder[0].GetComponent<TileMap>();
+        //TileMap rails = tempholder[0].GetComponent<TileMap>();
 
 
         //gets the train position on the XYZ
-        Vector3 trainPos = transform.position;
+        //Vector3 trainPos = transform.position;
 
 
         //will find the currentHex the train is on
-        Tile currentHex = GetCurrentHex(rails, trainPos);
+        //Tile currentHex = GetCurrentHex(rails, trainPos);
+        currentHex = rails.GetTile(Vector3Int.RoundToInt(trainPos));
 
 
         //will change train Orientation based on the hex the train is on

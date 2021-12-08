@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb57a9e4668f6d47864f72c67eadd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rails: {fileID: 1859814546}
   lever1: {fileID: 148692337}
 --- !u!1001 &285742367
 PrefabInstance:
@@ -1272,6 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bc2ed7e5d53e04a89be93112966c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rails: {fileID: 1859814546}
 --- !u!1 &1408091762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1567,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpen: 0
+--- !u!1839735485 &1859814546 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 7531578682217665367, guid: e0ffae7fd26512c4c85ca17971ae0a0f, type: 3}
+  m_PrefabInstance: {fileID: 285742367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909133521
 GameObject:
   m_ObjectHideFlags: 0

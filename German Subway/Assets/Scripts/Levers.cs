@@ -9,13 +9,24 @@ using UnityEngine.UI;
 
 public class Levers : MonoBehaviour
 {
+    [SerializeField]
+    private Tilemap rails;
+
     public GameObject lever1;
+    
     private bool lever1Open = true;
     private float delay = 1;
+
+ 
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
         lever1 = GameObject.Find("Lever");
+        //rails = TileMap.Find("HexMap (1)");
+        //rails = map as TileMap;
 
         InvokeRepeating("LocateHex", 1.0f, 5.0f);
         //StartCoroutine(LocateHex(delay));
@@ -35,32 +46,52 @@ public class Levers : MonoBehaviour
 
     public void LocateHex()
     {
+        
+        Vector3 trainPos = transform.position;
+        TileBase currentHex;
+
+        //rails.GetTile(trainPos);
         //yield return new WaitForSeconds(delay);
 
         //ok this is an array of all things taged with the HexMap tag witch is just our one tilemap so tempholder[0] will return a refrence to our tilrmap
-        GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
+        //GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
 
         //turns the Gameo
-        //TileMap rails = tempholder[0].GetComponent<TileMap>();
-        TileMap rails = tempholder[0] as TileMap;
+        //Tile rails = tempholder[0].GetComponent<Tile>();
+        //TileMap rails = tempholder[0] as TileMap;
 
         //gets the train position on the XYZ
-        Vector3 trainPos = transform.position;
+
 
 
         //will find the currentHex the train is on
-        Tile currentHex = GetCurrentHex(rails, trainPos);
+        if (rails == null)
+        {
+            print("rails");
+        }
+        else if (trainPos == null)
+        {
+            print("train");
+        }
+        else
+        {
+
+            //print(rails.GetTile(Vector3Int.RoundToInt(trainPos)/*) + " " + Vector3Int.RoundToInt(rails.GetTile(trainPos))*/));
+        }
+           
+        currentHex = rails.GetTile(Vector3Int.RoundToInt(trainPos));
+        
 
 
-        print(/*currentHex + " " + */trainPos);
+        //print(currentHex.ToString() + " " + trainPos);
 
 
     }
 
-    private static Tile GetCurrentHex(TileMap rails, Vector3 trainPos)
+    /*private static Vector3int GetCurrentHex(Tilemap rails, Vector3 trainPos)
     {
         return rails.GetTile(trainPos);
-    }
+    }*/
 }
     internal class TileMap
 {
