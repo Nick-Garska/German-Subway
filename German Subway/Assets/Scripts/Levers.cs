@@ -15,8 +15,8 @@ public class Levers : MonoBehaviour
     {
         lever1 = GameObject.Find("Lever");
 
-        //InvokeRepeating("LocateHex()", 1.0f, 5.0f);
-        StartCoroutine(LocateHex(delay));
+        InvokeRepeating("LocateHex", 1.0f, 5.0f);
+        //StartCoroutine(LocateHex(delay));
     }
 
     // Update is called once per frame
@@ -31,9 +31,9 @@ public class Levers : MonoBehaviour
         }
     }
 
-    IEnumerator LocateHex(float delay)
+    public void LocateHex()
     {
-        yield return new WaitForSeconds(delay);
+        //yield return new WaitForSeconds(delay);
 
         //ok this is an array of all things taged with the HexMap tag witch is just our one tilemap so tempholder[0] will return a refrence to our tilrmap
         GameObject[] tempholder = GameObject.FindGameObjectsWithTag("HexMap");
